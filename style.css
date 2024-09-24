@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  background-image: linear-gradient(to right, #082f49, #a2b6c4);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: all 0.3s linear;
+}
+
+body.light {
+  background-image: linear-gradient(to right, #66b7ec, #bad0f2);
+}
+
+.calculator {
+  background-image: linear-gradient(to left, #1f2023, #383a3b);
+  grid-column: span 4;
+  border-radius: 32px;
+
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+/*** Output screen ***/
+.output {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  padding: 20px;
+}
+
+.input-display,
+.output-display {
+  width: 100%;
+  height: 40px;
+  font-size: 24px;
+  text-align: right;
+  color: #fff;
+  background-color: transparent;
+  border: none;
+}
+
+/*** calculator screen ***/
+.calc-box {
+  border-radius: 30px;
+  padding: 20px;
+  background-image: linear-gradient(to right, #0e2f3d, #224f61);
+  height: 400px;
+  width: 340px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+
+.span-3 {
+  grid-column: span 3;
+}
+.span-2 {
+  grid-column: span 2;
+}
+
+.btn {
+  color: #fff;
+  font-size: 25px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.operation,
+.clear,
+.equal {
+  background-color: #132c35;
+  border: 1px solid #132c35;
+  backdrop-filter: blur(25px);
+}
+
+.number {
+  background-color: #234f61;
+  border: 1px solid #234f61;
+  backdrop-filter: blur(25px);
+}
+
+.btn:active {
+  transform: scale(0.8);
+}
+
+.btn:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+/*** Dark/light mode ***/
+.dark-mood {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-label {
+  background-color: #fff;
+  width: 46px;
+  height: 26px;
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5px;
+}
+
+.fa-moon {
+  color: #003daf;
+}
+
+.fa-sun {
+  color: #ff970f;
+}
+
+.checkbox-label .ball {
+  background-color: #000;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(30px);
+}
